@@ -20,6 +20,13 @@
                 }
             }
 
+            increment(event){
+                this.setState({number: this.state.number+1})
+            }
+            decrement(event){
+                this.setState({number: Math.max(1, this.state.number - 1)})
+            }
+
             render(){
                 return(
                     <div>
@@ -27,6 +34,8 @@
                         <h2>Current Program: {this.props.label}</h2>
                         <p>Current Date: {this.props.date.toLocaleDateString()}</p>
                         <h3>Current Week: {this.state.number}</h3>
+                        <button onClick={this.increment.bind(this)}>Increment</button>
+                        <button onClick={this.decrement.bind(this)}>Decrement</button>
                     </div>
                 )
             }
